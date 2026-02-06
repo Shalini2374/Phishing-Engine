@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Phishing Detector</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; background-color: #f4f4f4; }
+        .container { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #333; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; }
+        input[type="url"] { width: calc(100% - 22px); padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px; }
+        input[type="submit"] { background-color: #5cb85c; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; width: 100%; }
+        input[type="submit"]:hover { background-color: #4cae4c; }
+        .result { margin-top: 20px; padding: 15px; border-radius: 4px; text-align: center; font-weight: bold; }
+        .result.safe { background-color: #dff0d8; color: #3c763d; border: 1px solid #d6e9c6; }
+        .result.phishing { background-color: #f2dede; color: #a94442; border: 1px solid #ebccd1; }
+        .loading { text-align: center; margin-top: 15px; display: none; } /* Initially hidden */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Phishing URL Detector</h1>
+        <form action="/predict" method="post" onsubmit="showLoading()">
+            <label for="url">Enter URL to check:</label>
+            <input type="url" id="url" name="url" placeholder="https://example.com" required>
+            <input type="submit" value="Check URL">
+        </form>
+        <div class="loading" id="loadingMessage">Checking... Please wait (this can take up to 30 seconds).</div>
+
+        {% if result %}
+            <div class="result {{ 'safe' if prediction == 0 else 'phishing' }}">
+                {{ result }}
+            </div>
+        {% endif %}
+    </div>
+
+    <script>
+        function showLoading() {
+            // Show loading message when form is submitted
+            document.getElementById('loadingMessage').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

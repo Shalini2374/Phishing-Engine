@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phishing Warning</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f2dede; color: #a94442; padding: 30px; }
+        h1 { border-bottom: 1px solid #ebccd1; padding-bottom: 10px; }
+        p { font-size: 1.1em; }
+        strong { word-wrap: break-word; } /* Ensure long URLs wrap */
+    </style>
+</head>
+<body>
+    <h1> Phishing Site Blocked</h1>
+    <p>The page you were trying to visit:</p>
+    <p><strong id="blockedUrl"></strong></p>
+    <p>has been identified as potentially dangerous by the Phishing Detector extension.</p>
+    <p>It's recommended you close this tab.</p>
+
+    <script>
+        // Get the blocked URL from the query parameter and display it
+        const urlParams = new URLSearchParams(window.location.search);
+        const blockedUrl = urlParams.get('url');
+        document.getElementById('blockedUrl').textContent = blockedUrl || 'Unknown URL';
+    </script>
+</body>
+</html>

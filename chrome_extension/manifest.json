@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Phishing Detector",
+  "version": "1.0",
+  "description": "Checks URLs against a custom phishing detection backend.",
+  "permissions": [
+    "tabs",           
+    "scripting",      
+    "webNavigation"   
+  ],
+  "host_permissions": [
+    "<all_urls>"      
+                     
+  ],
+  "background": {
+    "service_worker": "background.js" 
+  },
+   "action": {
+    "default_title": "Phishing Detector Active"
+    
+  }
+}
