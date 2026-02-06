@@ -1,0 +1,15 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.pkl
+*.h5
+*.model
+*.joblib
+screenshots/
+temp_screenshots/
+cv_data_train/
+dataset/
+*.csv
+.DS_Store
