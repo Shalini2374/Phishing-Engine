@@ -1,0 +1,15 @@
+# Versions are intentionally unpinned. After a working install, run `pip freeze > requirements.txt` to pin them.
+flask
+flask-cors
+joblib
+pandas
+numpy
+scikit-learn
+xgboost
+tensorflow
+Pillow
+nltk
+selenium
+webdriver-manager
+beautifulsoup4
+lxml
